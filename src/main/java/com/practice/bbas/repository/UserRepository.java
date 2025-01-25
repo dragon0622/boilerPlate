@@ -1,5 +1,8 @@
 package com.practice.bbas.repository;
 
-public class UserRepository {
+import com.practice.bbas.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<Integer, User> {
 
 }
