@@ -1,7 +1,6 @@
 package com.practice.bbas.controller;
 
 import com.practice.bbas.dto.AddUserRequestDTO;
-import com.practice.bbas.dto.LoginRequestDTO;
 import com.practice.bbas.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
