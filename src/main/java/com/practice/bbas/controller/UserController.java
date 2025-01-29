@@ -1,15 +1,13 @@
 package com.practice.bbas.controller;
 
 import com.practice.bbas.dto.AddUserRequestDTO;
+import com.practice.bbas.dto.LoginRequestDTO;
 import com.practice.bbas.service.UserService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-//@RestController
-@Controller
-@ResponseBody
+@RestController
 public class UserController {
 
     private final UserService userService;
@@ -29,10 +27,18 @@ public class UserController {
 //    }
 
     @PostMapping("/api/signUp")
-    public String signUp(AddUserRequestDTO requestDTO){
-        System.out.println(requestDTO.getUserName());
+    public String signUp(@RequestBody AddUserRequestDTO requestDTO){
+        System.out.println(requestDTO.getName());
         userService.saveUser(requestDTO);
 
         return "ok";
     }
+
+//    @PostMapping("/api/login")
+//    public String signUp(@RequestBody LoginRequestDTO requestDTO){
+//
+//        userService.saveUser(requestDTO);
+//
+//        return "ok";
+//    }
 }

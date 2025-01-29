@@ -1,7 +1,6 @@
 package com.practice.bbas.service;
 
 import com.practice.bbas.dto.AddUserRequestDTO;
-import com.practice.bbas.dto.AddUserResponseDTO;
 import com.practice.bbas.entity.User;
 import com.practice.bbas.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -26,7 +25,7 @@ public class UserService {
 //    }
 
     public void saveUser(AddUserRequestDTO requestDTO){
-        String name = requestDTO.getUserName();
+        String name = requestDTO.getName();
         String password = requestDTO.getPassword();
 
         Boolean isExist = userRepository.existsByName(name);
