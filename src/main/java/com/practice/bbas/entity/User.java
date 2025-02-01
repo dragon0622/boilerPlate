@@ -24,13 +24,13 @@ public class User {
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @Column(name = "email", nullable = true, unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "position", nullable = true)
+    @Column(name = "position", nullable = false)
     private String position;
 
     @Column(name = "address")
