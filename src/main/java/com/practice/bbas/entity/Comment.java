@@ -2,6 +2,7 @@ package com.practice.bbas.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,32 +13,20 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Getter
 @Setter
 @Entity
-@Table(name = "Users")
+@Table(name = "Comment")
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class User {
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long commentId;
 
-    @Column(name = "name", nullable = false, unique = true)
-    private String name;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 
-    @Column(name = "email", nullable = false, unique = true)
-    private String email;
-
-    @Column(name = "password", nullable = false)
-    private String password;
-
-    @Column(name = "position", nullable = false)
-    private String position;
-
-    @Column(name = "address")
-    private String address;
-
-    @Column(name = "role")
-    private String role;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Post post;
 
     @CreatedDate
     @Column(name = "create_at")
