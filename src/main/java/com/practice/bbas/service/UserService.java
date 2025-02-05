@@ -36,6 +36,8 @@ public class UserService {
         User data = new User();
 
         data.setName(name);
+        data.setEmail(requestDTO.getEmail());
+        data.setPosition(requestDTO.getPosition());
         data.setPassword(bCryptPasswordEncoder.encode(password));
         data.setRole("ROLE_ADMIN");
 

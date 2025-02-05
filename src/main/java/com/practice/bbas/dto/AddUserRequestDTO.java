@@ -9,4 +9,6 @@ public class AddUserRequestDTO {
 
     private String name;
     private String password;
+    private String email;
+    private String position;
 }
