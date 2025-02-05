@@ -1,5 +1,6 @@
 package com.practice.bbas.config;
 
+import com.practice.bbas.jwt.JwtFilter;
 import com.practice.bbas.jwt.JwtUtil;
 import com.practice.bbas.jwt.LoginFilter;
 import org.springframework.context.annotation.Bean;
@@ -60,7 +61,11 @@ public class SecurityConfig {
                         .requestMatchers("/admin").hasRole("ADMIN")
                         .anyRequest().authenticated());
 
+        http.addFilterBefore(new JwtFilter(jwtUtil), LoginFilter.class);
+
         http.addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil), UsernamePasswordAuthenticationFilter.class);
+
+
 
         //세션 설정
         http
