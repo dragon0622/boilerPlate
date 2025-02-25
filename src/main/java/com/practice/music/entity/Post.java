@@ -1,5 +1,6 @@
 package com.practice.music.entity;
 
+import com.practice.music.dto.PostRequestDTO;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -30,6 +31,12 @@ public class Post {
     @OneToMany(fetch = FetchType.LAZY)
     private List<Comment> comments = new ArrayList<>();
 
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "content")
+    private String content;
+
     @CreatedDate
     @Column(name = "create_at")
     private LocalDateTime createdAt;
@@ -38,5 +45,11 @@ public class Post {
     @Column(name = "update_at")
     private LocalDateTime updatedAt;
 
+    public static Post from(PostRequestDTO dto) {
+        Post post = new Post();
+        post.setTitle(dto.getTitle());
+        post.setContent(dto.getContent());
+        return post;
+    }
 
 }

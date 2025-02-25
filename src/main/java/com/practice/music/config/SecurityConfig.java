@@ -60,10 +60,10 @@ public class SecurityConfig {
         http.httpBasic(AbstractHttpConfigurer::disable);
 
         //경로별 인가 작업
-        http.authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/api/login", "/","/api/signUp").permitAll()
-                        .requestMatchers("/admin").hasRole("ADMIN")
-                        .anyRequest().authenticated());
+//        http.authorizeHttpRequests((auth) -> auth
+//                        .requestMatchers("/api/login", "/","/api/signUp").permitAll()
+//                        .requestMatchers("/admin").hasRole("ADMIN")
+//                        .anyRequest().authenticated());
 
         http.addFilterBefore(new JwtFilter(jwtUtil), LoginFilter.class);
 
