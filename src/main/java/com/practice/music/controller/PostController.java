@@ -27,7 +27,6 @@ public class PostController {
     public ResponseEntity<PostResponseDTO> addPost(@RequestBody PostRequestDTO postRequestDTO, @AuthenticationPrincipal
             CustomUserDetails userDetails){
         postRequestDTO.setUserId(userDetails.getUserId());
-        System.out.println(userDetails.getUserId() + "user id");
         PostResponseDTO postResponseDTO = postService.addPost(postRequestDTO);
         return ResponseEntity.ok(postResponseDTO);
     }
