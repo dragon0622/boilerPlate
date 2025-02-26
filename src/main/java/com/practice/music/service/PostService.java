@@ -18,6 +18,8 @@ public class PostService {
     public PostResponseDTO addPost(PostRequestDTO postRequestDTO) {
         Post post = Post.from(postRequestDTO);
 
+        post.setUserId(postRequestDTO.getUserId());
+
         Post savedPost = postRepository.save(post);
 
         return PostResponseDTO.from(savedPost);

@@ -25,8 +25,9 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
+//    @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "userId")
+    private Long userId;
 
     @OneToMany(fetch = FetchType.LAZY)
     private List<Comment> comments = new ArrayList<>();
